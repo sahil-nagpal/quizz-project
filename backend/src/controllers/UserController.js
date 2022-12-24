@@ -22,7 +22,7 @@ const checklogin = async(req,res)=>{
     try{
         let {name} = req.body
         console.log("name :: ",name)
-        let userObj  = await User.findOne({"name":name})
+        let userObj  = await User.findOne({"name":name.toLowerCase()})
         if(userObj){
             return res.json({success:true,userId:userObj._id,"message":"user found"})
         }
