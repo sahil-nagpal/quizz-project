@@ -3,7 +3,7 @@ const User = require('../models/User');
 const create = async(req,res)=>{
     try{
         let {name} = req.body
-        let newUser = new User({"name":toLowerCase(name)})
+        let newUser = new User({"name":(name.toLowerCase())})
         try{
            await newUser.save()
         }

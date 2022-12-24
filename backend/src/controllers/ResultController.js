@@ -32,6 +32,7 @@ const update = async(req,res)=>{
         let {user_id} = req.params
         let doc = await Result.findOneAndUpdate({"user":user_id},req.body,{
             new:true,
+            upsert:true,
             returnOriginal: false
         })
         return res.json({"success":true,resultObj :doc,"message":"successfully updated"})
